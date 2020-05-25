@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat May 16 09:58:48 CST 2020
+@default-spring-milestone-http\://repo.spring.io/milestone/.lastUpdated=1589594328400
+http\://repo.spring.io/milestone/.error=Could not transfer artifact org.springframework\:spring-beans\:pom\:5.2.6.RELEASE from/to spring-milestone (http\://repo.spring.io/milestone)\: Authorization failed for http\://repo.spring.io/milestone/org/springframework/spring-beans/5.2.6.RELEASE/spring-beans-5.2.6.RELEASE.pom 403 Forbidden
+http\://maven.aliyun.com/nexus/content/groups/public/.lastUpdated=1589594328693

@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat May 16 09:59:24 CST 2020
+@default-spring-milestone-http\://repo.spring.io/milestone/.lastUpdated=1589594363617
+http\://repo.spring.io/milestone/.error=Could not transfer artifact org.apache.zookeeper\:parent\:pom\:3.5.7 from/to spring-milestone (http\://repo.spring.io/milestone)\: Authorization failed for http\://repo.spring.io/milestone/org/apache/zookeeper/parent/3.5.7/parent-3.5.7.pom 403 Forbidden
+http\://maven.aliyun.com/nexus/content/groups/public/.lastUpdated=1589594364049
