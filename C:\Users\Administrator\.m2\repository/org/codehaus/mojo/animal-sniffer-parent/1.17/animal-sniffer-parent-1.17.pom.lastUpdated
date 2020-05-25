@@ -1,5 +1,0 @@
-#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
-#Sat May 16 10:00:00 CST 2020
-@default-spring-milestone-http\://repo.spring.io/milestone/.lastUpdated=1589594400577
-http\://repo.spring.io/milestone/.error=Could not transfer artifact org.codehaus.mojo\:animal-sniffer-parent\:pom\:1.17 from/to spring-milestone (http\://repo.spring.io/milestone)\: Authorization failed for http\://repo.spring.io/milestone/org/codehaus/mojo/animal-sniffer-parent/1.17/animal-sniffer-parent-1.17.pom 403 Forbidden
-http\://maven.aliyun.com/nexus/content/groups/public/.lastUpdated=1589594400914

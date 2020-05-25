@@ -1,5 +1,0 @@
-#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
-#Sat May 16 09:59:59 CST 2020
-@default-spring-milestone-http\://repo.spring.io/milestone/.lastUpdated=1589594398763
-http\://repo.spring.io/milestone/.error=Could not transfer artifact com.google.j2objc\:j2objc-annotations\:pom\:1.1 from/to spring-milestone (http\://repo.spring.io/milestone)\: Authorization failed for http\://repo.spring.io/milestone/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.pom 403 Forbidden
-http\://maven.aliyun.com/nexus/content/groups/public/.lastUpdated=1589594399077
