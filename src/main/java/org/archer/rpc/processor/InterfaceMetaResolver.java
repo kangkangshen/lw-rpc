@@ -11,7 +11,6 @@ import org.archer.rpc.meta.MethodMetaData;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanPostProcessor;
-import org.springframework.context.ApplicationContext;
 import org.springframework.core.DefaultParameterNameDiscoverer;
 import org.springframework.core.ParameterNameDiscoverer;
 import org.springframework.core.annotation.AnnotationUtils;
@@ -30,14 +29,12 @@ import java.util.Objects;
 @Component
 public class InterfaceMetaResolver implements BeanPostProcessor {
 
-    @Autowired
-    private Environment environment;
-
-    @Autowired
-    private InterfaceMetaRegister register;
-
     private final ParameterNameDiscoverer parameterNameDiscoverer =
             new DefaultParameterNameDiscoverer();
+    @Autowired
+    private Environment environment;
+    @Autowired
+    private InterfaceMetaRegister register;
 
     @SneakyThrows
     @Override
@@ -48,10 +45,10 @@ public class InterfaceMetaResolver implements BeanPostProcessor {
         if (Objects.nonNull(serviceProvider)) {
             InterfaceMetaData interfaceMetaData = new InterfaceMetaData();
             interfaceMetaData.setHost(
-            environment.getProperty(PropertyKeys.SERVICE_PROVIDER_HOST,
-            InetAddress.getLocalHost().getHostAddress()));
+                    environment.getProperty(PropertyKeys.SERVICE_PROVIDER_HOST,
+                            InetAddress.getLocalHost().getHostAddress()));
             interfaceMetaData.setPort
-            (Integer.parseInt(environment.getRequiredProperty(PropertyKeys.SERVICE_PROVIDER_PORT)));
+                    (Integer.parseInt(environment.getRequiredProperty(PropertyKeys.SERVICE_PROVIDER_PORT)));
             Class<?> interfaceClazz = serviceProvider.value();
             if (!interfaceClazz.isInterface()) {
                 throw new RuntimeException(interfaceClazz.getName() + "is not a interface");
@@ -61,7 +58,7 @@ public class InterfaceMetaResolver implements BeanPostProcessor {
             interfaceMetaData.setImplBeanName(beanName);
             interfaceMetaData.setInterfaceName(serviceProvider.value().getName());
             interfaceMetaData.setInterfaceVersion(
-            polishVersion(serviceProvider.version()));
+                    polishVersion(serviceProvider.version()));
             interfaceMetaData.setProtocol(Protocols.DEFAULT_PROTOCOL);
             Method[] methods = ReflectionUtils.getAllDeclaredMethods(interfaceClazz);
             List<MethodMetaData> methodMetaData = Lists.newArrayList();
@@ -72,8 +69,8 @@ public class InterfaceMetaResolver implements BeanPostProcessor {
             interfaceMetaData.setMethodMetaData(methodMetaData);
             register.registerInstance(
                     interfaceMetaData.getInterfaceName() +
-                    Delimiters.COLON +
-                    interfaceMetaData.getInterfaceVersion(),
+                            Delimiters.COLON +
+                            interfaceMetaData.getInterfaceVersion(),
                     interfaceMetaData);
             return bean;
         } else {

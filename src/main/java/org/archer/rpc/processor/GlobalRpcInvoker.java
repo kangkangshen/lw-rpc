@@ -33,8 +33,7 @@ public class GlobalRpcInvoker {
     @RequestMapping("/rpc/{interfaceName}/{version}")
     public Object rpcInvoke(@PathVariable String interfaceName,
                             @PathVariable String version,
-                            @Nonnull @RequestBody InvocationMetaData invocationMetaData)
-    {
+                            @Nonnull @RequestBody InvocationMetaData invocationMetaData) {
         logger.debug(interfaceName + Delimiters.COLON + version + "accessed");
         try {
             Object bean;
@@ -49,13 +48,13 @@ public class GlobalRpcInvoker {
                     beanClass,
                     method -> Objects.equals(method.getName(), targetMethodName))[0];
             if (Objects.isNull(targetMethod)) {
-                throw new NoSuchMethodException("There is not any method named " + targetMethodName+
-                                                " matched in " + invocationMetaData.getInterfaceName());
+                throw new NoSuchMethodException("There is not any method named " + targetMethodName +
+                        " matched in " + invocationMetaData.getInterfaceName());
             }
 
             Object result = ReflectionUtils.invokeMethod(targetMethod,
-                                                        bean,
-                                                        SerializeUtils.toArray(invocationMetaData.getParams()));
+                    bean,
+                    SerializeUtils.toArray(invocationMetaData.getParams()));
             logger.debug(interfaceName +
                     Delimiters.COLON +
                     version +

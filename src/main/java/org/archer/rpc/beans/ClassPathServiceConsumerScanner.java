@@ -14,6 +14,7 @@ import org.springframework.core.type.filter.AssignableTypeFilter;
 import java.lang.annotation.Annotation;
 import java.util.Arrays;
 import java.util.Set;
+
 @Deprecated
 public class ClassPathServiceConsumerScanner extends ClassPathBeanDefinitionScanner {
 

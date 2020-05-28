@@ -3,6 +3,7 @@ package org.archer.rpc.beans;
 import org.springframework.beans.factory.config.AbstractFactoryBean;
 
 import java.util.Objects;
+
 @Deprecated
 public class ServiceConsumerFactoryBean extends AbstractFactoryBean {
 

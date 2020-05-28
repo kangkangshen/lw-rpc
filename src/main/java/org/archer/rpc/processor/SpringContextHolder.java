@@ -13,12 +13,12 @@ public class SpringContextHolder implements ApplicationContextAware {
 
     private static ApplicationContext springContext;
 
+    public static ApplicationContext getSpringContext() {
+        return springContext;
+    }
+
     @Override
     public void setApplicationContext(@Nonnull ApplicationContext applicationContext) throws BeansException {
         springContext = applicationContext;
-    }
-
-    public static ApplicationContext getSpringContext(){
-        return springContext;
     }
 }

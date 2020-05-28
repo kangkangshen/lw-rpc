@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface InterfaceDiscovery {
 
-    InterfaceMetaData choose(Class<?> interfaceClazz,String version);
+    InterfaceMetaData choose(Class<?> interfaceClazz, String version);
 
-    List<InterfaceMetaData> discover(Class<?> interfaceClazz,String version);
+    List<InterfaceMetaData> discover(Class<?> interfaceClazz, String version);
 }

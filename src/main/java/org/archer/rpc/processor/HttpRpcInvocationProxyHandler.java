@@ -98,7 +98,6 @@ public class HttpRpcInvocationProxyHandler implements InvocationHandler {
         //4.处理返回结果
     }
 
-
     private boolean shouldRpc(Method method) {
         Method[] methods = this.service.getDeclaredMethods();
         for (Method interfaceMethod : methods) {
@@ -108,7 +107,6 @@ public class HttpRpcInvocationProxyHandler implements InvocationHandler {
         }
         return false;
     }
-
 
 }
 

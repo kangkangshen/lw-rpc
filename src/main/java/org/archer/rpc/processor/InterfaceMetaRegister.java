@@ -31,25 +31,15 @@ import java.util.stream.Collectors;
 public class InterfaceMetaRegister implements MultiRegistrar<String, InterfaceMetaData>, InitializingBean {
 
     private static final Logger logger = LoggerFactory.getLogger(InterfaceMetaRegister.class);
-
-
-    private CuratorFramework curatorClient;
-
-    private TreeCache treeCache;
-
-    private boolean running = false;
-
     private static final String ROOT_PATH = "services/provider";
-
+    private static final int DEFAULT_SESSION_TIME_OUT = 5000;
+    private static final int DEFAULT_RETRY_INTERVAL = 3000;
+    private static final int DEFAULT_MAX_RETRY_TIMES = 3;
+    private CuratorFramework curatorClient;
+    private TreeCache treeCache;
+    private boolean running = false;
     @Value("${zk.connect.string:localhost:2181}")
     private String zkConnectString;
-
-    private static final int DEFAULT_SESSION_TIME_OUT = 5000;
-
-    private static final int DEFAULT_RETRY_INTERVAL = 3000;
-
-    private static final int DEFAULT_MAX_RETRY_TIMES = 3;
-
 
     @Override
     public boolean contains(String s) {
@@ -142,7 +132,7 @@ public class InterfaceMetaRegister implements MultiRegistrar<String, InterfaceMe
                 .connectString(zkConnectString)
                 .sessionTimeoutMs(DEFAULT_SESSION_TIME_OUT)
                 .retryPolicy(
-                new RetryNTimes(DEFAULT_MAX_RETRY_TIMES, DEFAULT_RETRY_INTERVAL))
+                        new RetryNTimes(DEFAULT_MAX_RETRY_TIMES, DEFAULT_RETRY_INTERVAL))
                 .namespace(ROOT_PATH)
                 .build();
         curatorClient.start();
